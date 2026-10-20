@@ -4,7 +4,7 @@ A Streamlit app that turns video speech into a transcript, a short extractive su
 
 ## Features
 
-- Upload an MP4, MOV, MKV or WebM video, or paste a YouTube link.
+- Upload an MP4, MOV, MKV or WebM video, or paste a YouTube link. For YouTube, the app tries public captions first, then audio; you can also paste a transcript manually.
 - Extract audio with FFmpeg and transcribe speech locally with OpenAI Whisper (`base`, CPU).
 - Pick summary sentences and key points using TF-IDF similarity.
 - Retrieve relevant transcript chunks with TF-IDF and answer with `google/flan-t5-small`.
@@ -32,7 +32,7 @@ A Streamlit app that turns video speech into a transcript, a short extractive su
 
 The first transcription and Q&A can take longer while the models download. Processing runs where the app is hosted (your machine when run locally, or the Streamlit server when deployed). YouTube downloading requires a network connection and may depend on video availability.
 
-On hosted platforms, YouTube may reject downloads from the cloud server with a bot verification error. In that case, use the video file upload option; this app does not require or collect YouTube cookies.
+On hosted platforms, YouTube may reject both caption and audio requests from the cloud server. In that case, open Show transcript on YouTube and paste the text into the app, or upload a video file. This app does not require or collect YouTube cookies.
 
 ## How it works
 
