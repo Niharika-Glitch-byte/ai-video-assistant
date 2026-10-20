@@ -30,7 +30,9 @@ A Streamlit app that turns video speech into a transcript, a short extractive su
    streamlit run app.py
    ```
 
-The first transcription and Q&A can take longer while the models download. Video and transcript processing run on your machine. YouTube downloading requires a network connection and may depend on video availability.
+The first transcription and Q&A can take longer while the models download. Processing runs where the app is hosted (your machine when run locally, or the Streamlit server when deployed). YouTube downloading requires a network connection and may depend on video availability.
+
+On hosted platforms, YouTube may reject downloads from the cloud server with a bot verification error. In that case, use the video file upload option; this app does not require or collect YouTube cookies.
 
 ## How it works
 
