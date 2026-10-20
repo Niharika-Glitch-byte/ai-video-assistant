@@ -39,7 +39,13 @@ if st.button("YouTube video lao") and youtube_url.strip():
                 st.session_state["youtube_name"] = downloaded.name
         st.success("YouTube video aa gaya!")
     except Exception as error:
-        st.error(f"YouTube video nahi aa paya: {error}")
+        if "Sign in to confirm you’re not a bot" in str(error) or "Sign in to confirm you're not a bot" in str(error):
+            st.warning(
+                "YouTube ne is cloud server se download block kiya hai. "
+                "Video file ho to neeche Upload se try karo."
+            )
+        else:
+            st.error(f"YouTube video nahi aa paya: {error}")
 
 video = st.file_uploader("Apni video upload karo", type=["mp4", "mov", "mkv", "webm"])
 if video is None and "youtube_bytes" in st.session_state:
